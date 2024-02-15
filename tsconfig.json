@@ -4,7 +4,7 @@
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx", // избавляет от необходимости явно импортировать react в компонентах (18)
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node", // can use require AS import

@@ -10,19 +10,25 @@ interface ENV {
 
 export default (env: ENV) => {
 	// Логи окружения
-	console.log('Режим сборки:', env.mode ?? 'server', '\n');
+	console.log('Режим сборки:', env.mode, '\n');
+
+	// Исключение
+	const isDevelopment = env.mode === 'development';
 
 	const config: webpack.Configuration = {
 		mode: env.mode ?? 'development', // режим сборки
 		entry: { // точка входа. объект-перечисление нескольких точек
-			bundle: path.resolve(__dirname, 'src', 'index.ts'), // где ключ - имя бандла на выходе (при отсутствии output конфигурации)
+			bundle: path.resolve(__dirname, 'src', 'index.tsx'), // где ключ - имя бандла на выходе (при отсутствии output конфигурации)
 		},
 
-		// конфигурация дэв-сервера
-		devServer: {
+		// конфигурация дэв-сервера (isDevelopment)
+		devServer: isDevelopment ? {
 			port: env.port ?? 3000,
 			open: true, // открыть браузер
-		},
+		} : undefined,
+
+		// source-map (isDevelopment)
+		devtool: isDevelopment ? 'inline-source-map' : undefined,
 
 		output: { // куда собрать
 			filename: '[name].[contenthash].js', 
@@ -33,7 +39,7 @@ export default (env: ENV) => {
 		plugins: [ // массив плагинов
 			new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }), // шаблон index.html
 			new webpack.ProgressPlugin(), // процентный прогресс сборки (консоль)
-		],
+		].filter(Boolean),
 
 		// Лоадеры // Последовательно обрабатываются с конца массива
 		module: {

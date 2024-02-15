@@ -26,6 +26,12 @@
     -// npm install --save-dev @types/webpack-dev-server // Типы dev-server
     -// package.json -> "start": "webpack serve -- --env port=3001" (-- необходимы)
 
+# Установка React
+    -// npm i react@latest react-dom@latest
+    -// npm i @types/react @types/react-dom --save-dev // Типы react
+    (вставка для tsconfig: "jsx": "react-jsx", // избавляет от необходимости явно импортировать react в компонентах (18))
+
 # Плагины:
     # https://webpack.js.org/concepts/#plugins
         - // npm install html-webpack-plugin --save-dev // Плагин шаблона index.html (содержимое файла за основу)
+
