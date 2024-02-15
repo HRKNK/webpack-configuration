@@ -1,0 +1,12 @@
+
+# Установка webpack:
+# https://webpack.js.org/guides/getting-started/
+// npm install webpack webpack-cli --save-dev
+    -// create: webpack.config.js // https://webpack.js.org/guides/getting-started/#using-a-configuration
+
+// ГИД к строкам конфигурации: https://webpack.js.org/configuration/output/#template-strings 
+
+# Переменные окружения:
+# https://webpack.js.org/guides/environment-variables/#root
+
+
