@@ -2,6 +2,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 interface ENV {
 	mode: 'development' | 'production',
@@ -31,20 +32,29 @@ export default (env: ENV) => {
 		devtool: isDevelopment ? 'inline-source-map' : undefined,
 
 		output: { // куда собрать
-			filename: '[name].[contenthash].js', 
+			filename: '[name].[contenthash:15].js', 
 			// имя бандла // [name] включает entry-ключ как имя бандла // [contenthash] включает хэш-файла в название файла
 			path: path.resolve(__dirname, 'build'), // путь хранения бандла
 			clean: true, // при сборке очищает папку хранения бандла
 		},
 		plugins: [ // массив плагинов
 			new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }), // шаблон index.html
-			new webpack.ProgressPlugin(), // процентный прогресс сборки (консоль)
+			isDevelopment && new webpack.ProgressPlugin(), // процентный прогресс сборки (консоль)
+			!isDevelopment && new MiniCssExtractPlugin({ // отделение CSS от инъекции в JS-стринг.
+				filename: 'css/[name].[contenthash:15].css', 
+				chunkFilename: 'css/[name].[contenthash:15].css', 
+			}), 
 		].filter(Boolean),
 
 		// Лоадеры // Последовательно обрабатываются с конца массива
 		module: {
 			rules: [
-			{
+			{ // CSS
+				test: /\.s?[ac]ss$/i, // /\.css$/i,
+				// use: ["style-loader", "css-loader", "sass-loader"], // create css AS js-string
+				use: [isDevelopment ? "style-loader": MiniCssExtractPlugin.loader, "css-loader", "sass-loader"], // create only css files
+			},	
+			{ // TS
 				test: /\.tsx?$/,
 				use: 'ts-loader',
 				exclude: /node_modules/,

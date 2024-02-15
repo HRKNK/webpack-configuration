@@ -34,4 +34,9 @@
 # Плагины:
     # https://webpack.js.org/concepts/#plugins
         - // npm install html-webpack-plugin --save-dev // Плагин шаблона index.html (содержимое файла за основу)
-
+    # https://webpack.js.org/loaders/css-loader/ || https://webpack.js.org/loaders/style-loader/
+        -// npm install --save-dev css-loader style-loader // Плагин css лоадера (import css from "file.css")
+    # https://webpack.js.org/loaders/sass-loader/
+        -// npm install sass-loader sass webpack --save-dev // sass препроцессор
+    # https://webpack.js.org/plugins/mini-css-extract-plugin/
+        -// npm install --save-dev mini-css-extract-plugin // отделение CSS от инъекции в JS-стринг.
