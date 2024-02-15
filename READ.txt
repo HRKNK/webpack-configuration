@@ -31,11 +31,17 @@
     -// npm i @types/react @types/react-dom --save-dev // Типы react
     (вставка для tsconfig: "jsx": "react-jsx", // избавляет от необходимости явно импортировать react в компонентах (18))
 
+# CSS-modules // style.module.css (является частью css-loader-а)
+# https://webpack.js.org/loaders/css-loader/#modules
+# https://webpack.js.org/loaders/css-loader/#object-2
+    -// see 'src/global.d.ts' 
+    -// edit css-loader (add new options)
+
 # Плагины:
     # https://webpack.js.org/concepts/#plugins
         - // npm install html-webpack-plugin --save-dev // Плагин шаблона index.html (содержимое файла за основу)
     # https://webpack.js.org/loaders/css-loader/ || https://webpack.js.org/loaders/style-loader/
-        -// npm install --save-dev css-loader style-loader // Плагин css лоадера (import css from "file.css")
+        -// npm install --save-dev css-loader style-loader // Плагин css лоадера (import "file.css")
     # https://webpack.js.org/loaders/sass-loader/
         -// npm install sass-loader sass webpack --save-dev // sass препроцессор
     # https://webpack.js.org/plugins/mini-css-extract-plugin/

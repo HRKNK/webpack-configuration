@@ -17,13 +17,16 @@ export default (env: ENV) => {
 	const paths: pathsBuild = {
 		entry: path.resolve(__dirname, 'src', 'index.tsx'),
 		html: path.resolve(__dirname, 'public', 'index.html'),
+
 		output: path.resolve(__dirname, 'build'),
 	};
 
+	// Основной webpack конфиг(декомпозирован)
 	const config: webpack.Configuration = webpackBuild({
 		mode: env.mode ?? 'development',
 		port: env.port ?? 3000,
 		paths,
 	});	
+
 	return config;
 };

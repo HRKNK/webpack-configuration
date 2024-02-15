@@ -1,11 +1,11 @@
 
 import "./App.css";
-import "./App.scss";
+import style from "./App.module.scss";
 
 const App = () => {
     return (
-        <div className="wrapper color">
-            HELLO WORLD
+        <div className="wrapper">
+            <p className={style.color}>HELLO WORLD</p>
         </div>
     );
 };
