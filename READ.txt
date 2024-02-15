@@ -8,5 +8,9 @@
 
 # Переменные окружения:
 # https://webpack.js.org/guides/environment-variables/#root
+    -// package.json -> "build:dev": "webpack --env mode=development"
+    -// обернуть файл конфигурации в функцию
 
-
+# Плагины:
+# https://webpack.js.org/concepts/#plugins
+    - // npm install html-webpack-plugin --save-dev // Плагин шаблона index.html (содержимое файла за основу)
