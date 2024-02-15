@@ -10,7 +10,7 @@ module.exports = (env) => {
 	return {
 		mode: env.mode ?? 'development', // режим сборки
 		entry: { // точка входа. объект-перечисление нескольких точек
-			bundle: path.resolve(__dirname, 'src', 'index.js'), // где ключ - имя бандла на выходе (при отсутствии output конфигурации)
+			bundle: path.resolve(__dirname, 'src', 'index.ts'), // где ключ - имя бандла на выходе (при отсутствии output конфигурации)
 		},
 		output: { // куда собрать
 			filename: '[name].[contenthash].js', 
@@ -22,5 +22,20 @@ module.exports = (env) => {
 			new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }), // шаблон index.html
 			new webpack.ProgressPlugin(), // процентный прогресс сборки (консоль)
 		],
+
+		// Лоадеры // Последовательно обрабатываются с конца массива
+		module: {
+			rules: [
+			{
+				test: /\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
+			},
+			],
+		},
+		resolve: { // форматы/расширения файлов // учитывается порядок
+			extensions: ['.tsx', '.ts', '.js'],
+		},
+
 	}
 };

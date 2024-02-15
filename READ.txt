@@ -11,6 +11,11 @@
     -// package.json -> "build:dev": "webpack --env mode=development"
     -// обернуть файл конфигурации в функцию
 
+# TypeScript
+# https://webpack.js.org/guides/typescript/#basic-setup
+    - // npm install --save-dev typescript ts-loader
+    - // create: tsconfig.json && add: ts-loader
+
 # Плагины:
 # https://webpack.js.org/concepts/#plugins
     - // npm install html-webpack-plugin --save-dev // Плагин шаблона index.html (содержимое файла за основу)
