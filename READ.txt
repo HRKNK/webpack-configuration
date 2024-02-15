@@ -16,6 +16,16 @@
     - // npm install --save-dev typescript ts-loader
     - // create: tsconfig.json && add: ts-loader
 
+# Типизация Webpack(TS)
+# https://webpack.js.org/configuration/configuration-languages/#typescript
+    - // npm install --save-dev typescript ts-node @types/node @types/webpack
+
+# Webpack dev-server
+# https://webpack.js.org/guides/development/#using-webpack-dev-server
+    -// npm install --save-dev webpack-dev-server
+    -// npm install --save-dev @types/webpack-dev-server // Типы dev-server
+    -// package.json -> "start": "webpack serve -- --env port=3001" (-- необходимы)
+
 # Плагины:
-# https://webpack.js.org/concepts/#plugins
-    - // npm install html-webpack-plugin --save-dev // Плагин шаблона index.html (содержимое файла за основу)
+    # https://webpack.js.org/concepts/#plugins
+        - // npm install html-webpack-plugin --save-dev // Плагин шаблона index.html (содержимое файла за основу)
