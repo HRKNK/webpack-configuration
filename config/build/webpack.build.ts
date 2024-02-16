@@ -13,14 +13,15 @@ export function webpackBuild(options:optionsBuild):webpack.Configuration {
     return {
         // режим сборки
 		mode: options.mode ?? 'development', 
-		entry: { // точка входа. объект-перечисление нескольких точек
+		// точка входа. объект-перечисление нескольких точек
+		entry: {
 			// bundle: path.resolve(__dirname, 'src', 'index.tsx'), // где ключ - имя бандла на выходе (при отсутствии output конфигурации)
 			bundle: options.paths.entry,
 		},
-
-		output: { // куда собрать
-			filename: '[name].[contenthash:15].js', 
-			// имя бандла // [name] включает entry-ключ как имя бандла // [contenthash] включает хэш-файла в название файла
+		// куда собрать
+		output: { 
+			filename: '[name].[contenthash:15].js', // имя бандла // [name] включает entry-ключ как имя бандла // [contenthash] включает хэш-файла в название файла
+			chunkFilename: 'bundle.chunk.[contenthash:15].js',
 			// path: path.resolve(__dirname, 'build'), // путь хранения бандла
 			path: options.paths.output,
 			clean: true, // при сборке очищает папку хранения бандла
@@ -37,6 +38,5 @@ export function webpackBuild(options:optionsBuild):webpack.Configuration {
 		},
         // форматы/расширения файлов // учитывается порядок
         resolve: webpackResolvers(options),
-
 	}
 }

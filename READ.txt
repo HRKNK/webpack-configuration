@@ -31,6 +31,10 @@
     -// npm i @types/react @types/react-dom --save-dev // Типы react
     (вставка для tsconfig: "jsx": "react-jsx", // избавляет от необходимости явно импортировать react в компонентах (18))
 
+# Установка React Routing
+# https://reactrouter.com/en/main/start/tutorial
+    -// npm i react-router-dom
+
 # CSS-modules // style.module.css (является частью css-loader-а)
 # https://webpack.js.org/loaders/css-loader/#modules
 # https://webpack.js.org/loaders/css-loader/#object-2
