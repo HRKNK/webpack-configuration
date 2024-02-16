@@ -11,7 +11,8 @@ export function webpackLoaders(options:optionsBuild): ModuleOptions['rules'] {
 		loader: "css-loader",
 		options: {
 			modules: { // css-modules
-				localIdentName: isDevelopment ? '[path][name]__[local]' : '[name]__[hash:base64:6]',
+				auto: /\.module\.s?[ac]ss$/i, // для каких файлов действует правило module (включая поддержку style.css)
+				localIdentName: isDevelopment ? '[path][name]__[local]--[hash:base64:6]' : '[name]__[hash:base64:6]', // генерация имени стилей
 			},
 		},
 	};
@@ -20,8 +21,8 @@ export function webpackLoaders(options:optionsBuild): ModuleOptions['rules'] {
 	return [
 		{ // CSS
 			test: /\.s?[ac]ss$/i, // /\.css$/i,
-			// use: ["style-loader", "css-loader", "sass-loader"], // create css AS js-string
-			use: [isDevelopment ? "style-loader": MiniCssExtractPlugin.loader, css_loader, "sass-loader"], // create only css files
+			// use: ["style-loader", "css-loader", "sass-loader"], // create css AS js-string (style-loader)
+			use: [isDevelopment ? "style-loader": MiniCssExtractPlugin.loader, css_loader, "sass-loader"], // create only css files (MiniCssExtractPlugin.loader)
 		},	
 		{ // TS
 			test: /\.tsx?$/,
