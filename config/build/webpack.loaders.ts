@@ -19,6 +19,10 @@ export function webpackLoaders(options:optionsBuild): ModuleOptions['rules'] {
 
 	// Лоадеры // Последовательно обрабатываются с конца массива
 	return [
+		{ // IMAGE // https://webpack.js.org/guides/asset-management/#loading-images
+			test: /\.(png|jpg|jpeg|gif)$/i,
+			type: 'asset/resource',
+		},
 		{ // CSS
 			test: /\.s?[ac]ss$/i, // /\.css$/i,
 			// use: ["style-loader", "css-loader", "sass-loader"], // create css AS js-string (style-loader)
@@ -28,6 +32,22 @@ export function webpackLoaders(options:optionsBuild): ModuleOptions['rules'] {
 			test: /\.tsx?$/,
 			use: 'ts-loader',
 			exclude: /node_modules/,
+		},
+		{ // SVG-loader
+			test: /\.svg$/i,
+			issuer: /\.[jt]sx?$/,
+			use: [{
+				loader: '@svgr/webpack',
+				options: { // Конфиг лоадера: https://react-svgr.com/docs/options
+					icon: true, // Resize SVG - удаляет из SVG размеры
+					svgoConfig: { // Recolor SVG - удаляет из SVG fill
+						plugins: [{
+							name: 'convertColors',
+							params: { currentColor: true },
+						}],
+					},
+				},
+			}],
 		},
 	]
 }

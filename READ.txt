@@ -55,3 +55,5 @@
         -// npm install sass-loader sass webpack --save-dev // sass препроцессор
     # https://webpack.js.org/plugins/mini-css-extract-plugin/
         -// npm install --save-dev mini-css-extract-plugin // отделение CSS от инъекции в JS-стринг.
+    # https://react-svgr.com/docs/webpack/
+        -// npm install --save-dev @svgr/webpack // плагин компонентной поддержки SVG
