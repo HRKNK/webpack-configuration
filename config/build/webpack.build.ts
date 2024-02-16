@@ -21,7 +21,7 @@ export function webpackBuild(options:optionsBuild):webpack.Configuration {
 		// куда собрать
 		output: { 
 			filename: '[name].[contenthash:15].js', // имя бандла // [name] включает entry-ключ как имя бандла // [contenthash] включает хэш-файла в название файла
-			chunkFilename: 'bundle.chunk.[contenthash:15].js',
+			chunkFilename: 'chunks/bundle.chunk.[contenthash:15].js',
 			// path: path.resolve(__dirname, 'build'), // путь хранения бандла
 			path: options.paths.output,
 			clean: true, // при сборке очищает папку хранения бандла

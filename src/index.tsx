@@ -1,10 +1,10 @@
 // import React from 'react'; // tsconfig.json: "jsx": "react-jsx"
 
 import { createRoot } from 'react-dom/client';
-import App from './components/App';
+import App from '@/components/App';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { About } from './pages/about/public';
-import { Store } from './pages/store/public';
+import { About } from '@/pages/about/public';
+import { Store } from '@/pages/store/public';
 import { Suspense } from 'react';
 
 const container = document.getElementById('root');

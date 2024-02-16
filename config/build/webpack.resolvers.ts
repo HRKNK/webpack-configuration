@@ -4,5 +4,8 @@ import type { optionsBuild } from "./types/webpack.build.types";
 export function webpackResolvers(options:optionsBuild): Configuration['resolve'] {
     return { // форматы/расширения файлов // учитывается порядок
 		extensions: ['.tsx', '.ts', '.js'],
+		alias: {
+			'@': options.paths.src, // указатель корневой папки
+		}
 	}
 }

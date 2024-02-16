@@ -13,12 +13,12 @@ export default (env: ENV) => {
 	// Логи окружения
 	console.log('Режим сборки:', env.mode, '\n');
 
-	// Пути точек входа/выхода
+	// Пути точек входа/выхода/алиас(@)
 	const paths: pathsBuild = {
 		entry: path.resolve(__dirname, 'src', 'index.tsx'),
 		html: path.resolve(__dirname, 'public', 'index.html'),
-
 		output: path.resolve(__dirname, 'build'),
+		src: path.resolve(__dirname, 'src'),
 	};
 
 	// Основной webpack конфиг(декомпозирован)

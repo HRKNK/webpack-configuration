@@ -41,6 +41,11 @@
     -// see 'src/global.d.ts' 
     -// edit css-loader (add new options)
 
+# Webpack Bundle Analyzer
+# https://www.npmjs.com/package/webpack-bundle-analyzer
+    -// npm install --save-dev webpack-bundle-analyzer // инструмент анализа бандла
+    -// npm install --save-dev @types/webpack-bundle-analyzer
+
 # Плагины:
     # https://webpack.js.org/concepts/#plugins
         - // npm install html-webpack-plugin --save-dev // Плагин шаблона index.html (содержимое файла за основу)
