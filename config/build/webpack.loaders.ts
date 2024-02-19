@@ -23,16 +23,30 @@ export function webpackLoaders(options:optionsBuild): ModuleOptions['rules'] {
 			test: /\.(png|jpg|jpeg|gif)$/i,
 			type: 'asset/resource',
 		},
+
 		{ // CSS
 			test: /\.s?[ac]ss$/i, // /\.css$/i,
 			// use: ["style-loader", "css-loader", "sass-loader"], // create css AS js-string (style-loader)
 			use: [isDevelopment ? "style-loader": MiniCssExtractPlugin.loader, css_loader, "sass-loader"], // create only css files (MiniCssExtractPlugin.loader)
 		},	
-		{ // TS
+
+		// { // TS
+		// 	test: /\.tsx?$/,
+		// 	use: 'ts-loader',
+		// 	exclude: /node_modules/,
+		// },
+
+		{ // TS (опциональный вариант)
 			test: /\.tsx?$/,
-			use: 'ts-loader',
 			exclude: /node_modules/,
+			use: [{
+				loader: 'ts-loader',
+				options: {
+					transpileOnly: isDevelopment // опция игнорирования типов при сборке [boolean]
+				}
+			}],
 		},
+
 		{ // SVG-loader
 			test: /\.svg$/i,
 			issuer: /\.[jt]sx?$/,
