@@ -42,7 +42,10 @@ export function webpackLoaders(options:optionsBuild): ModuleOptions['rules'] {
 			use: [{
 				loader: 'ts-loader',
 				options: {
-					transpileOnly: isDevelopment // опция игнорирования типов при сборке [boolean]
+					transpileOnly: isDevelopment, // опция игнорирования типов при сборке [boolean]
+					// getCustomTransformers: () => ({ // for HMR
+					// 	before: [isDevelopment && ReactRefreshTypeScript()].filter(Boolean),
+					// }),
 				}
 			}],
 		},

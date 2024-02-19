@@ -7,5 +7,7 @@ export function webpackDevServer(options:optionsBuild): DevServerConfiguration {
 		open: true, // открыть браузер
 		historyApiFallback: true, // https://webpack.js.org/configuration/dev-server/#devserverhistoryapifallback
 		// При использовании API истории HTML5 вместо ответов 404, скорее всего, придется обслуживать страницу index.html.
+
+		hot: true, // быстрая замена компонентов (без релоада страниц) п.с. работает только с чистым js
 	}
 }

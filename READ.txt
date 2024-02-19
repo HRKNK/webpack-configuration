@@ -63,3 +63,8 @@
     # https://www.npmjs.com/package/webpack-bundle-analyzer
         -// npm install --save-dev webpack-bundle-analyzer // инструмент анализа бандла
         -// npm install --save-dev @types/webpack-bundle-analyzer
+
+    # HOT MODULE REFRESH (REACT) (не установлено. не поддерживается дэв-сервер 5+ - глянуть позже)
+    # https://github.com/pmmmwh/react-refresh-webpack-plugin
+        -// npm install --save-dev @pmmmwh/react-refresh-webpack-plugin@0.5.11
+        -// npm install --save-dev react-refresh-typescript // Using ts-loader // add loader && plugin
