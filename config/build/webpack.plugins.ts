@@ -5,6 +5,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import type { optionsBuild } from './types/webpack.build.types';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 
 export function webpackPlugins(options:optionsBuild): Configuration['plugins'] {
 	// Исключение
@@ -13,7 +14,10 @@ export function webpackPlugins(options:optionsBuild): Configuration['plugins'] {
 
 	return [ // массив плагинов
 		// new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public', 'index.html') }), // шаблон index.html
-		new HtmlWebpackPlugin({ template: options.paths.html }),
+		new HtmlWebpackPlugin({ 
+			template: options.paths.html, 
+			favicon: path.resolve(options.paths.public, 'favicon.ico'),
+		}),
 		new DefinePlugin({ // Дополнительные переменные из окружения
 			__ENV: JSON.stringify(options.env),
 		}),
@@ -26,5 +30,10 @@ export function webpackPlugins(options:optionsBuild): Configuration['plugins'] {
 			chunkFilename: 'css/[name].[contenthash:15].css', 
 		}),
 		isProduction && new BundleAnalyzerPlugin(), // бандл анализатор
+		isProduction && new CopyPlugin({ // плагин копирования статик-файлов
+			patterns: [
+				{ from: path.resolve(options.paths.public, 'static'), to: path.resolve(options.paths.output, 'static') },
+			],
+		}),
 	].filter(Boolean)
 }

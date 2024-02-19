@@ -15,10 +15,11 @@ export default (env: ENV) => {
 	// Логи окружения
 	console.log('Режим сборки:', env.mode, '\n');
 
-	// Пути точек входа/выхода/алиас(@)
+	// Пути точек входа/публики/выхода/алиас(@)
 	const paths: pathsBuild = {
 		entry: path.resolve(__dirname, 'src', 'index.tsx'),
 		html: path.resolve(__dirname, 'public', 'index.html'),
+		public: path.resolve(__dirname, 'public'),
 		output: path.resolve(__dirname, 'build'),
 		src: path.resolve(__dirname, 'src'),
 	};

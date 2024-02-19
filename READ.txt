@@ -58,6 +58,8 @@
         -// npm install --save-dev @svgr/webpack // плагин компонентной поддержки SVG
     # https://webpack.js.org/plugins/define-plugin/
         -// стандартный плагин вэбпака (подменяет глобальные переменные взятые из окружения)
+    # https://webpack.js.org/plugins/copy-webpack-plugin/
+        -// npm install copy-webpack-plugin --save-dev // плагин копирования статик-файлов
 
     # Webpack Bundle Analyzer
     # https://www.npmjs.com/package/webpack-bundle-analyzer
