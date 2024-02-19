@@ -3,8 +3,8 @@
 interface IClassNames {
 	[className: string]: string
 }
-declare module '*.module.css' {	const classNames: IClassNames; export = classNames; }
-declare module '*.module.scss' { const classNames: IClassNames;	export = classNames; }
+declare module '*.module.css' {	const classNames: IClassNames; export default classNames; }
+declare module '*.module.scss' { const classNames: IClassNames;	export default classNames; }
 
 // IMAGE
 declare module '*.png';
@@ -17,3 +17,6 @@ declare module "*.svg" {
     const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
     export default SVG;
 }
+
+// ENV(переменные принятые из окружения)
+declare const __ENV: string;

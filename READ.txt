@@ -41,11 +41,6 @@
     -// see 'src/global.d.ts' 
     -// edit css-loader (add new options)
 
-# Webpack Bundle Analyzer
-# https://www.npmjs.com/package/webpack-bundle-analyzer
-    -// npm install --save-dev webpack-bundle-analyzer // инструмент анализа бандла
-    -// npm install --save-dev @types/webpack-bundle-analyzer
-
 # Плагины:
     # https://webpack.js.org/concepts/#plugins
         - // npm install html-webpack-plugin --save-dev // Плагин шаблона index.html (содержимое файла за основу)
@@ -57,3 +52,10 @@
         -// npm install --save-dev mini-css-extract-plugin // отделение CSS от инъекции в JS-стринг.
     # https://react-svgr.com/docs/webpack/
         -// npm install --save-dev @svgr/webpack // плагин компонентной поддержки SVG
+    # https://webpack.js.org/plugins/define-plugin/
+        -// стандартный плагин вэбпака (подменяет глобальные переменные взятые из окружения)
+
+    # Webpack Bundle Analyzer
+    # https://www.npmjs.com/package/webpack-bundle-analyzer
+        -// npm install --save-dev webpack-bundle-analyzer // инструмент анализа бандла
+        -// npm install --save-dev @types/webpack-bundle-analyzer

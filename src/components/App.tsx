@@ -10,6 +10,7 @@ import Logo_svg from '@/assets/cloud-fog.svg';
 const App = () => {
 	return (
 		<div className="wrapper">
+			{__ENV}
 			<p className={style.color}>Main</p>
 			<Link to={'/about'}>About</Link>
 			<Link to={'/store'}>Store</Link>

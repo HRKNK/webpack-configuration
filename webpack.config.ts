@@ -3,10 +3,12 @@ import webpack from 'webpack';
 import { webpackBuild } from './config/build/webpack.build';
 import type { pathsBuild } from './config/build/types/webpack.build.types';
 
-// Типы окружения
+// Типы окружения (package.json)
 interface ENV {
 	mode: 'development' | 'production',
 	port: number,
+
+	env?: string,
 };
 
 export default (env: ENV) => {
@@ -26,6 +28,9 @@ export default (env: ENV) => {
 		mode: env.mode ?? 'development',
 		port: env.port ?? 3000,
 		paths,
+
+		// Проброс переменных окружения в src(приложение)
+		env: env.env ?? 'null',
 	});	
 
 	return config;
