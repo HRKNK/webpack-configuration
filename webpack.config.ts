@@ -5,11 +5,11 @@ import type { pathsBuild } from './config/build/types/webpack.build.types';
 
 // Типы окружения (package.json)
 interface ENV {
-	mode: 'development' | 'production',
-	port: number,
+	mode: 'development' | 'production';
+	port: number;
 
-	env?: string,
-};
+	env?: string;
+}
 
 export default (env: ENV) => {
 	// Логи окружения
@@ -32,7 +32,7 @@ export default (env: ENV) => {
 
 		// Проброс переменных окружения в src(приложение)
 		env: env.env ?? 'null',
-	});	
+	});
 
 	return config;
 };

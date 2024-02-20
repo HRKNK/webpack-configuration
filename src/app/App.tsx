@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
-import './style.css';
-import style from './style.module.scss';
+import './style/style.css';
+import style from './style/style.module.scss';
 
 import Logo_jpg from '@/shared/assets/cloud-fog.jpg';
 import Logo_png from '@/shared/assets/cloud-fog.jpg';

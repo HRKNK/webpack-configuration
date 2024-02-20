@@ -1,23 +1,23 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "jsx": "react-jsx", // избавляет от необходимости явно импортировать react в компонентах (18)
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node", // can use require AS import
-    "esModuleInterop": true, // fix default import: "import * as * from" -> "import * from"
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"noImplicitAny": true,
+		"module": "ESNext",
+		"target": "es5",
+		"jsx": "react-jsx", // избавляет от необходимости явно импортировать react в компонентах (18)
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"moduleResolution": "node", // can use require AS import
+		"esModuleInterop": true, // fix default import: "import * as * from" -> "import * from"
 
-    "baseUrl": ".", // can use Alias
-    "paths": {
-      "@/*": ["./src/*"],
-    }
-  },
-    "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  }
+		"baseUrl": ".", // can use Alias
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"ts-node": {
+		"compilerOptions": {
+			"module": "CommonJS"
+		}
+	}
 }
