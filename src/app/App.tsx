@@ -1,11 +1,11 @@
 
 import { Link, Outlet } from "react-router-dom";
-import "./App.css";
-import style from "./App.module.scss";
+import "./style.css";
+import style from "./style.module.scss";
 
-import Logo_jpg from '@/assets/cloud-fog.jpg';
-import Logo_png from '@/assets/cloud-fog.jpg';
-import Logo_svg from '@/assets/cloud-fog.svg';
+import Logo_jpg from '@/shared/assets/cloud-fog.jpg';
+import Logo_png from '@/shared/assets/cloud-fog.jpg';
+import Logo_svg from '@/shared/assets/cloud-fog.svg';
 
 const App = () => {
 	return (

@@ -29,7 +29,7 @@ export function webpackBuild(options:optionsBuild):webpack.Configuration {
 		// конфигурация дэв-сервера (isDevelopment)
 		devServer: isDevelopment ? webpackDevServer(options) : undefined,
 		// source-map (isDevelopment)
-		devtool: isDevelopment ? 'inline-source-map' : undefined,
+		devtool: isDevelopment ? 'inline-source-map' : 'source-map', // https://webpack.js.org/configuration/devtool/#devtool
         // массив плагинов
 		plugins: webpackPlugins(options),
 		// Лоадеры // Последовательно обрабатываются с конца массива
