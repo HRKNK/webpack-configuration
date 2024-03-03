@@ -2,14 +2,16 @@
 
 ### Что включено:
 
-- React, React-dom, Redux-Toolkit;
+- React, React-dom;
+- Redux-Toolkit;
 - React Routing;
+- Axios;
 - TypeScript;
 - CSS-modules;
-- Define-plugin (переменные окружения);
 
 ### Плагины/лоадеры:
 
+- define-plugin (переменные окружения);
 - webpack-dev-server;
 - typeScript-checkerWebpack;
 - ts-loader;
