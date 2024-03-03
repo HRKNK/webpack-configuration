@@ -2,7 +2,7 @@
 
 ### Что включено:
 
-- React, React-dom;
+- React, React-dom, Redux-Toolkit;
 - React Routing;
 - TypeScript;
 - CSS-modules;
