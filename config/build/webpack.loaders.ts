@@ -30,24 +30,26 @@ export function webpackLoaders(options:optionsBuild): ModuleOptions['rules'] {
 			use: [isDevelopment ? "style-loader": MiniCssExtractPlugin.loader, css_loader, "sass-loader"], // create only css files (MiniCssExtractPlugin.loader)
 		},	
 
-		// { // TS
+		// { // TS (опциональный вариант)
 		// 	test: /\.tsx?$/,
-		// 	use: 'ts-loader',
 		// 	exclude: /node_modules/,
+		// 	use: [{
+		// 		loader: 'ts-loader',
+		// 		options: {
+		// 			transpileOnly: isDevelopment, // опция игнорирования типов при сборке [boolean]
+		// 			// getCustomTransformers: () => ({ // for HMR
+		// 			// 	before: [isDevelopment && ReactRefreshTypeScript()].filter(Boolean),
+		// 			// }),
+		// 		}
+		// 	}],
 		// },
 
-		{ // TS (опциональный вариант)
+		{ // Babel
 			test: /\.tsx?$/,
 			exclude: /node_modules/,
-			use: [{
-				loader: 'ts-loader',
-				options: {
-					transpileOnly: isDevelopment, // опция игнорирования типов при сборке [boolean]
-					// getCustomTransformers: () => ({ // for HMR
-					// 	before: [isDevelopment && ReactRefreshTypeScript()].filter(Boolean),
-					// }),
-				}
-			}],
+			use: {
+				loader: "babel-loader",
+			}
 		},
 
 		{ // SVG-loader

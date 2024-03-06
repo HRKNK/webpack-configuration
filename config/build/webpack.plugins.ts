@@ -33,7 +33,6 @@ export function webpackPlugins(options:optionsBuild): Configuration['plugins'] {
 		isProduction && new CopyPlugin({ // плагин копирования статик-файлов
 			patterns: [
 				{ from: path.resolve(options.paths.public, 'static'), to: path.resolve(options.paths.output, 'static') },
-				// { from: path.resolve(options.paths.public, 'static'), to: path.resolve(options.paths.output, 'static') },
 			],
 		}),
 	].filter(Boolean)
