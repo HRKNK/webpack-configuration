@@ -1,15 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchComponent } from '../service/fetchComponent';
+import { ComponentState } from '../types/ComponentSchema';
 
-interface ProductState {
-	isLoading: boolean;
-	error?: unknown;
-
-	data: any[];
-	count: number;
-}
-
-const initialState: ProductState = {
+const initialState: ComponentState = {
 	isLoading: false, // для манипуляций над состоянием компонентов
 	error: false,
 
