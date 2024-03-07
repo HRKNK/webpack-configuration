@@ -6,6 +6,7 @@ import type { optionsBuild } from './types/webpack.build.types';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export function webpackPlugins(options:optionsBuild): Configuration['plugins'] {
 	// Исключение
@@ -24,6 +25,7 @@ export function webpackPlugins(options:optionsBuild): Configuration['plugins'] {
 		
 		isDevelopment && new ForkTsCheckerWebpackPlugin(), // процесс проверки типов (при игнорировании лоадером!)
 		isDevelopment && new webpack.ProgressPlugin(), // процентный прогресс сборки (консоль)
+		isDevelopment && new ReactRefreshWebpackPlugin(), // для HotModuleReplacement
 
 		isProduction && new MiniCssExtractPlugin({ // отделение CSS от инъекции в JS-стринг.
 			filename: 'css/[name].[contenthash:15].css', 

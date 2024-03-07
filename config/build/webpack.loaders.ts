@@ -1,6 +1,8 @@
-import { type ModuleOptions } from "webpack";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import type { ModuleOptions } from "webpack";
 import type { optionsBuild } from "./types/webpack.build.types";
+
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import ReactRefreshTypeScript from 'react-refresh-typescript';
 
 export function webpackLoaders(options:optionsBuild): ModuleOptions['rules'] {
 	// Исключение
@@ -30,27 +32,27 @@ export function webpackLoaders(options:optionsBuild): ModuleOptions['rules'] {
 			use: [isDevelopment ? "style-loader": MiniCssExtractPlugin.loader, css_loader, "sass-loader"], // create only css files (MiniCssExtractPlugin.loader)
 		},	
 
-		// { // TS (опциональный вариант)
-		// 	test: /\.tsx?$/,
-		// 	exclude: /node_modules/,
-		// 	use: [{
-		// 		loader: 'ts-loader',
-		// 		options: {
-		// 			transpileOnly: isDevelopment, // опция игнорирования типов при сборке [boolean]
-		// 			// getCustomTransformers: () => ({ // for HMR
-		// 			// 	before: [isDevelopment && ReactRefreshTypeScript()].filter(Boolean),
-		// 			// }),
-		// 		}
-		// 	}],
-		// },
-
-		{ // Babel
+		{ // TS (опциональный вариант)
 			test: /\.tsx?$/,
 			exclude: /node_modules/,
-			use: {
-				loader: "babel-loader",
-			}
+			use: [{
+				loader: 'ts-loader',
+				options: {
+					transpileOnly: isDevelopment, // опция игнорирования типов при сборке [boolean]
+					getCustomTransformers: () => ({ // для HotModuleReplacement
+						before: [isDevelopment && ReactRefreshTypeScript()].filter(Boolean),
+					}),
+				}
+			}],
 		},
+
+		// { // Babel
+		// 	test: /\.tsx?$/,
+		// 	exclude: /node_modules/,
+		// 	use: {
+		// 		loader: "babel-loader",
+		// 	}
+		// },
 
 		{ // SVG-loader
 			test: /\.svg$/i,

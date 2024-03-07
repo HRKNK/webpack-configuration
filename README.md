@@ -15,13 +15,15 @@
 - webpack-dev-server;
 - typeScript-checkerWebpack;
 - ts-loader;
-- html-webpack-plugin;
+- babel-loader;
 - css-loader;
 - sass webpack;
-- mini-css-extract-plugin;
 - @svgr/webpack;
-- copy-webpack-plugin;
 - webpack-bundle-analyzer;
+- html-webpack-plugin;
+- mini-css-extract-plugin;
+- copy-webpack-plugin;
+- react-refresh-webpack-plugin (ts-loader);
 
 ## Начало работы
 
