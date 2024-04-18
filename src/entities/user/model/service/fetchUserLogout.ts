@@ -5,19 +5,20 @@ import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/const';
 
 /** ActionCreators */
 // механизм асинхронного запроса данных
-export const initUserAuth = createAsyncThunk(
-	'entities/initUserAuth', // название
+export const fetchUserLogout = createAsyncThunk(
+	'entities/fetchUserLogout', // название
 	async (_, thunkAPI) => {
-		console.log('Sending a request: InitUserAuth');
+		console.log('Sending a request: Logout');
 		try {
 			const token = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
-			if (!token) return thunkAPI.rejectWithValue('error');
+			if (!token) throw new Error();
 
 			const headers = {
 				'auth-token': `Bearer ${token}`,
 			};
-			const response = await instance.post<any>('/check', {}, { headers });
-			thunkAPI.dispatch(UserSliceAction.setAuthData(response.data));
+			const response = await instance.post<any>('/logout', {}, { headers });
+
+			if (response.statusText === 'OK') thunkAPI.dispatch(UserSliceAction.logout());
 
 			return response.data;
 		} catch (error) {

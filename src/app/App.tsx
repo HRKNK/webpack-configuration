@@ -15,17 +15,17 @@ const App = () => {
 	const { _init } = useAppSelector((state) => state.UserSliceReducer);
 	const dispatch = useAppDispatch();
 
-	useEffect(() => {
-		void dispatch(initUserAuth());
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	void dispatch(initUserAuth());
+	// }, [dispatch]);
 
-	if (!_init) {
-		return (
-			<div className="wrapper-main">
-				<div>Loading!</div>
-			</div>
-		);
-	}
+	// if (!_init) {
+	// 	return (
+	// 		<div className="wrapper-main">
+	// 			<div>Loading!</div>
+	// 		</div>
+	// 	);
+	// }
 
 	return (
 		<div className="wrapper-main">

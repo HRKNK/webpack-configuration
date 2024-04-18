@@ -8,7 +8,7 @@ export const fetchUserAuth = createAsyncThunk(
 	'entities/fetchUserAuth', // название
 	async (options: any, thunkAPI) => {
 		const { login, password } = options;
-		console.log('Sending a request');
+		console.log('Sending a request: Auth');
 		try {
 			const body = JSON.stringify({
 				login,
@@ -18,7 +18,7 @@ export const fetchUserAuth = createAsyncThunk(
 
 			if (!response.data) throw new Error();
 
-			// thunkAPI.dispatch(UserSliceAction.setAuthData(response.data));
+			thunkAPI.dispatch(UserSliceAction.setAuthData(response.data));
 
 			return response.data;
 		} catch (error) {

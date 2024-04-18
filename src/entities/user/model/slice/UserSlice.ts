@@ -28,6 +28,10 @@ export const UserSlice = createSlice({
 			state._init = true;
 			localStorage.setItem(USER_LOCAL_STORAGE_KEY, action.payload);
 		},
+		logout: (state) => {
+			state.data.token = undefined;
+			localStorage.removeItem(USER_LOCAL_STORAGE_KEY);
+		},
 	},
 	extraReducers: (builder) => {
 		builder
@@ -35,17 +39,18 @@ export const UserSlice = createSlice({
 			.addCase(fetchUserAuth.pending, (state) => {
 				state.isLoading = true;
 				state.error = false;
-				state._init = false;
 			})
 			.addCase(fetchUserAuth.rejected, (state, action) => {
 				state.isLoading = false;
-				state._init = true;
 				state.error = action.payload;
+
+				state._init = true;
 			})
 			.addCase(fetchUserAuth.fulfilled, (state, action: PayloadAction<any>) => {
 				state.data.token = action.payload;
 				state.isLoading = false;
 				state.error = false;
+
 				state._init = true;
 			});
 	},
