@@ -6,8 +6,27 @@ import Logo_jpg from '@/shared/assets/cloud-fog.jpg';
 import Logo_png from '@/shared/assets/cloud-fog.jpg';
 import Logo_svg from '@/shared/assets/cloud-fog.svg';
 import Component from '@/components/Component';
+import User from '@/entities/user/User';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
+import { useEffect } from 'react';
+import { initUserAuth } from '@/entities/user/model/service/InitUserAuth';
 
 const App = () => {
+	const { _init } = useAppSelector((state) => state.UserSliceReducer);
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		void dispatch(initUserAuth());
+	}, [dispatch]);
+
+	if (!_init) {
+		return (
+			<div className="wrapper-main">
+				<div>Loading!</div>
+			</div>
+		);
+	}
+
 	return (
 		<div className="wrapper-main">
 			<p className={style.color}>Main</p>
@@ -27,6 +46,7 @@ const App = () => {
 			<div>
 				<p>Components</p>
 				<Component />
+				<User />
 			</div>
 		</div>
 	);

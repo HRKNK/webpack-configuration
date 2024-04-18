@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'any';
+const API_URL = 'http://localhost:3003';
 
 const headers = {
 	'Content-Type': 'application/json; charset=utf-8',

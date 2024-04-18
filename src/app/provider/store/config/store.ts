@@ -1,4 +1,5 @@
 import { ComponentSliceReducer } from '@/components/model/slice/ComponentSlice';
+import { UserSliceReducer } from '@/entities/user/model/slice/UserSlice';
 import { ReducersMapObject, combineReducers, configureStore } from '@reduxjs/toolkit';
 import { createReducerManager } from './reducerManager';
 import { StateSchema } from './stateSchema';
@@ -6,6 +7,7 @@ import { StateSchema } from './stateSchema';
 // объединение всех Reducer (исполнителей) ИЛИ обычный объект без combineReducers (просто объявление Reducer-а)
 const rootReducer = combineReducers({
 	ComponentSliceReducer,
+	UserSliceReducer,
 });
 
 // Конфигурация Redux-хранилища
